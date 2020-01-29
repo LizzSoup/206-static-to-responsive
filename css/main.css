@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 html {
 	font-size: 16px;
 }
@@ -19,8 +23,9 @@ body {
 	align-items: center;
 	display: flex;
 	justify-content: center;
+	flex-flow: row wrap;
 	max-width: 1200px;
-	margin: 0 auto;
+	width: 90%;
 }
 
 h1,
@@ -51,23 +56,29 @@ h4 {
 p {
 	font-size: 0.875em;
 	line-height: 21px;
-	padding: 0 30px;
+}
+
+/* not on list */
+ul {
+	margin: 0;
 }
 
 /*The widths are in a percentage!*/
 header {
 	align-items: center;
-	border-bottom: 3px solid #77a466;
 	display: flex;
-	height: 110px;
+	flex-flow: row wrap;
 	justify-content: center;
-	margin: 0 auto;
+	text-align: center;
+	width: 100%;
 }
 
 header h1 {
-	float: left;
+	border-bottom: 3px solid #77a466;
+	font-size: 1.875em;
 	margin: 0;
-	padding: 38px 0;
+	padding: 38px 25px;
+	width: 100%;
 }
 
 header h1 span {
@@ -75,8 +86,8 @@ header h1 span {
 }
 
 header nav {
-	float: right;
 	padding: 46px 0;
+	width: 100%;
 }
 
 header nav ul {
@@ -88,8 +99,8 @@ header nav ul li {
 	text-transform: uppercase;
 	font-weight: 700;
 	font-size: 0.875em;
-	padding: 0 10px;
-	display: inline;
+	list-style: none;
+	padding: 10px;
 }
 
 header nav ul li a {
@@ -101,25 +112,15 @@ header nav ul li a {
 .top-section,
 .bottom-section {
 	align-items: center;
-	clear: both;
 	display: flex;
+	flex-flow: row wrap;
 	justify-content: center;
-	margin: 0 auto;
-}
-
-.main-image {
-	height: auto;
-	float: left;
 }
 
 .main-image img {
-	width: 100%;
 	border-bottom: 3px solid #77a466;
-}
-
-.main-title {
-	height: auto;
-	float: left;
+	border-top: 3px solid #77a466;
+	width: 100%;
 }
 
 .main-title h3 {
@@ -137,24 +138,18 @@ header nav ul li a {
 .section-one,
 .section-two,
 .section-three {
-	width: 33%;
-	height: auto;
-	float: left;
 	border-top: 1px solid #eee;
+	width: 100%;
+	padding: 10px;
 }
 
 .section-one h4 {
 	padding: 10px 0;
 }
 
-.section-two {
-	border-left: 1px solid #eee;
-	border-right: 1px solid #eee;
-}
-
 .section-two h4,
 .section-three h4 {
-	padding: 10px 30px;
+	padding: 10px 0;
 }
 
 .menu {
@@ -182,12 +177,11 @@ header nav ul li a {
 footer {
 	align-items: center;
 	border-top: 3px solid #eee;
-	clear: both;
 	display: flex;
 	height: 50px;
 	justify-content: center;
-	margin: 0 auto;
 	text-align: center;
+	width: 100%;
 }
 
 footer span {
@@ -198,12 +192,55 @@ footer span {
 }
 
 /* ============================== */
-/* Media for min-width 768 screens */
+/* Media for Tablet 768 Screens */
 /* ============================== */
-@media all and (min-width: 768px) {}
+@media all and (min-width: 768px) {
+	.top-section {
+		border-bottom: 1px solid #eee;
+	}
 
+	.section-one,
+	.section-two,
+	.section-three {
+		align-items: flex-start;
+		border-top: none;
+		min-height: 220px;
+		width: 33.33%;
+	}
+
+	.section-two,
+	.section-three {
+		padding: 0 20px;
+	}
+
+	.section-two {
+		border-left: 1px solid #eee;
+		border-right: 1px solid #eee;
+	}
+}
 
 /* ============================== */
-/* Media for min-width 1200 screens */
+/* Media for Desktop 1200 Screens */
 /* ============================== */
-@media all and (min-width: 1200px) {}
+@media all and (min-width: 1200px) {
+	header {
+		flex-flow: row nowrap;
+		justify-content: space-between;
+	}
+
+	header h1 {
+		border-bottom: none;
+		text-align: left;
+		padding: 0;
+		width: 50%;
+	}
+
+	header nav {
+		width: 50%;
+	}
+
+	header nav ul {
+		display: flex;
+		justify-content: space-evenly;
+	}
+}
